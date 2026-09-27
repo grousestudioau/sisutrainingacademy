@@ -25,13 +25,13 @@
 .hero { border-top: 0; padding-top: clamp(56px, 9vw, 120px); }
 .hero .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: end; }
 .hero h1 { margin: 20px 0 28px; font-size: clamp(38px, 4.8vw, 64px); text-wrap: balance; }
-.hero .sub { font-size: 19px; }
+.hero .sub { font-size: var(--fs-lead); }
 .hero .cta { margin-top: 40px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-.hero .foot { margin-top: 16px; font-family: var(--small); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+.hero .foot { margin-top: 16px; font-family: var(--small); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
 
 .now { border-top: 1px solid var(--line); padding: 0; }
 .now .wrap { display: flex; flex-wrap: wrap; }
-.now a { flex: 1 1 320px; display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 22px 0; text-decoration: none; font-size: 15px; color: var(--fg); }
+.now a { flex: 1 1 320px; display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 22px 0; text-decoration: none; font-size: var(--fs-small); color: var(--fg); }
 .now a + a { border-left: 1px solid var(--line); padding-left: var(--pad); }
 .now a:first-child { padding-right: var(--pad); }
 .now .t { font-weight: 500; }
@@ -44,14 +44,14 @@
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--rule); }
 .steps li { list-style: none; padding: 26px 24px 0 0; }
 .steps li + li { border-left: 1px solid var(--line); padding-left: 24px; }
-.steps .n { font-family: var(--small); font-size: 12px; color: var(--mute); }
+.steps .n { font-family: var(--small); font-size: var(--fs-label); color: var(--mute); }
 .steps h3 { margin: 36px 0 10px; font-size: 28px; }
-.steps p { font-size: 16px; }
+.steps p { font-size: var(--fs-body); }
 
 .entry .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 110px); }
 .entry .word { width: min(100%, 440px); height: auto; }
 .entry .pos { margin-top: 20px; }
-.entry .def { font-size: clamp(21px, 2.1vw, 26px); line-height: 1.45; color: var(--fg); }
+.entry .def { font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.45; color: var(--fg); }
 .entry .def + p { margin-top: 28px; }
 
 .coach .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
@@ -60,20 +60,20 @@
 .coach p + p { margin-top: 16px; }
 .coach blockquote { margin: 40px 0; padding-left: 20px; border-left: 3px solid var(--hl); }
 .coach blockquote p { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 30px; line-height: 1; color: var(--fg); }
-.coach blockquote cite { display: block; font-style: normal; font-family: var(--small); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: var(--mute); margin-top: 8px; }
+.coach blockquote cite { display: block; font-style: normal; font-family: var(--small); letter-spacing: .08em; text-transform: uppercase; font-size: var(--fs-label); color: var(--mute); margin-top: 8px; }
 .also { grid-column: 2; display: grid; grid-template-columns: 140px 1fr; gap: 28px; margin-top: 24px; padding-top: 40px; border-top: 1px solid var(--line); }
 .also img { aspect-ratio: 1; }
 .also h3 { margin: 12px 0 14px; font-size: 26px; }
 .also p + p { margin-top: 14px; }
 .also .creds { margin-top: 20px; }
 .creds { list-style: none; border-top: 2px solid var(--rule); }
-.creds li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--fg); }
+.creds li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: var(--fs-small); color: var(--fg); }
 
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--rule); }
 .quotes figure { padding: 28px 28px 0 0; }
 .quotes figure + figure { border-left: 1px solid var(--line); padding-left: 28px; }
-.quotes blockquote { font-size: 17px; line-height: 1.65; color: var(--fg); }
-.quotes figcaption { margin-top: 20px; font-family: var(--small); letter-spacing: .12em; text-transform: uppercase; font-size: 12px; color: var(--mute); }
+.quotes blockquote { font-size: var(--fs-body); line-height: 1.65; color: var(--fg); }
+.quotes figcaption { margin-top: 20px; font-family: var(--small); letter-spacing: .08em; text-transform: uppercase; font-size: var(--fs-label); color: var(--mute); }
 
 @media (max-width: 900px) {
   .hero .wrap, .entry .wrap, .coach .wrap { grid-template-columns: 1fr; }
@@ -122,7 +122,7 @@
     </div>
     <div class="reveal">
       <table class="ledger">
-        <caption class="label">Best results so far · five-day holiday programs</caption>
+        <caption class="label">Best results so far</caption>
         <thead><tr><th>Test</th><th>Top boy</th><th>Top girl</th></tr></thead>
         <tbody>
           <tr><th>Vertical jump</th><td>+21<small>cm</small></td><td>+3<small>cm</small></td></tr>
@@ -130,7 +130,7 @@
           <tr><th>10 m sprint</th><td>−0.12<small>s</small></td><td>−0.25<small>s</small></td></tr>
         </tbody>
       </table>
-      <p class="foot">Tested on day one and again on day five</p>
+      <p class="foot">Five-day holiday programs · tested on day one and day five</p>
     </div>
   </div>
 </section>

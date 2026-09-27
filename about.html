@@ -23,7 +23,7 @@
 .entry .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 110px); }
 .entry .word { width: min(100%, 440px); height: auto; }
 .entry .pos { margin-top: 20px; }
-.entry .def { font-size: clamp(21px, 2.1vw, 26px); line-height: 1.45; color: var(--fg); }
+.entry .def { font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.45; color: var(--fg); }
 .entry .def + p, .entry p + p { margin-top: 20px; }
 
 .coach .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
@@ -32,9 +32,9 @@
 .coach p + p { margin-top: 16px; }
 .coach blockquote { margin: 40px 0; padding-left: 20px; border-left: 3px solid var(--hl); }
 .coach blockquote p { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 30px; line-height: 1; color: var(--fg); }
-.coach blockquote cite { display: block; font-style: normal; font-family: var(--small); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: var(--mute); margin-top: 8px; }
+.coach blockquote cite { display: block; font-style: normal; font-family: var(--small); letter-spacing: .08em; text-transform: uppercase; font-size: var(--fs-label); color: var(--mute); margin-top: 8px; }
 .creds { list-style: none; border-top: 2px solid var(--rule); }
-.creds li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--fg); }
+.creds li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: var(--fs-small); color: var(--fg); }
 .also { grid-column: 2; display: grid; grid-template-columns: 140px 1fr; gap: 28px; margin-top: 24px; padding-top: 40px; border-top: 1px solid var(--line); }
 .also img { aspect-ratio: 1; }
 .also h3 { margin: 12px 0 14px; font-size: 26px; }
@@ -47,7 +47,7 @@
 .clubs img { width: 120px; height: 120px; object-fit: cover; }
 .clubs h3 { margin-bottom: 6px; }
 .clubs .label { display: block; margin-bottom: 12px; }
-.clubs p { font-size: 16px; }
+.clubs p { font-size: var(--fs-body); }
 .partner-form { margin-top: clamp(56px, 8vw, 96px); max-width: 720px; }
 .partner-form h3 { margin-bottom: 8px; }
 .partner-form > p { margin-bottom: 28px; }

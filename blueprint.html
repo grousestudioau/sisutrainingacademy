@@ -23,8 +23,8 @@
 .tiers .row { grid-template-columns: minmax(0, 1.6fr) 1fr 1fr 1.2fr; }
 .tiers .price { font-family: var(--display); font-weight: 900; font-style: italic; font-size: 28px; }
 .tiers .go { justify-self: end; }
-.tiers .go .btn { padding: 12px 18px; font-size: 14px; }
-.tiers + .aside { margin-top: 24px; font-size: 15px; }
+.tiers .go .btn { padding: 12px 18px; font-size: var(--fs-small); }
+.tiers + .aside { margin-top: 24px; font-size: var(--fs-small); }
 @media (max-width: 800px) { .tiers .row { grid-template-columns: 1fr 1fr; } .tiers .go { justify-self: start; grid-column: 1 / -1; margin-top: 8px; } }
 .band { border-top: 0; padding: 0; }
 .band img { height: clamp(300px, 46vw, 560px); object-position: 50% 45%; }

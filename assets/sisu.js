@@ -9,6 +9,13 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
 
+  // Coming up: place the "this week" line. Hidden if today is outside the planner's range.
+  document.querySelectorAll('.planner[data-start]').forEach(function (p) {
+    var start = new Date(p.dataset.start + 'T00:00:00'), days = p.dataset.weeks * 7;
+    var at = (Date.now() - start) / 864e5 / days, line = p.querySelector('.now');
+    if (line && at >= 0 && at <= 1) { p.style.setProperty('--at', at); line.hidden = false; }
+  });
+
   // Forms: <form data-endpoint="https://formspree.io/f/..."> followed by a .form-done block.
   document.querySelectorAll('form[data-endpoint]').forEach(function (form) {
     var btn = form.querySelector('button[type="submit"]');

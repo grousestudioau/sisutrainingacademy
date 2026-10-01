@@ -11,7 +11,8 @@
   --line: rgba(255,255,255,.14);
   --rule: #ffffff;        /* heavy rule under table heads */
   --btn-bg: #ffffff; --btn-fg: #0b0b0c;
-  --hl: #ffe94a;          /* highlighter: one mark per section */
+  --gold: #c9a84c;        /* SISU gold. Only ever as foil, below. */
+  --foil: linear-gradient(115deg, #8b6b22 0%, #c9a84c 22%, #f2dfa2 40%, #c9a84c 56%, #a6832f 76%, #e0c674 92%, #b8963f 100%); /* static sheen, never animated */
   --display: 'ironstrike', system-ui, sans-serif;  /* Adobe Fonts kit ccu5clg, shared with Grouse */
   --small: 'Optician Sans', system-ui, sans-serif; /* labels only */
   --body: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
@@ -46,10 +47,10 @@ strong, .fact { color: var(--fg); font-weight: 500; }
 .label { line-height: 1.35; font-family: var(--small); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
 .mute { color: var(--mute); }
 .num { font-variant-numeric: tabular-nums; }
-.hl {
-  color: #0b0b0c; padding: 0 .18em; margin: 0 -.05em; white-space: nowrap; /* keep marks short: a number or a few words */
-  background: linear-gradient(100deg, transparent .2em, var(--hl) .2em, var(--hl) calc(100% - .15em), transparent calc(100% - .15em)) 0 55% / 100% 82% no-repeat;
-}
+.foil { background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.foil-logo { display: block; background: var(--foil); aspect-ratio: 640 / 168;
+  -webkit-mask: url('brand/wordmark.png') left center / contain no-repeat; mask: url('brand/wordmark.png') left center / contain no-repeat; }
+.foil-rule { border-left: 3px solid; border-image: var(--foil) 1; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
 section { padding: clamp(72px, 11vw, 140px) 0; border-top: 1px solid var(--line); }
@@ -90,7 +91,6 @@ section { padding: clamp(72px, 11vw, 140px) 0; border-top: 1px solid var(--line)
 .ledger tbody th { font-size: var(--fs-body); color: var(--fg); padding: 18px 16px 18px 0; }
 .ledger td { font-family: var(--display); font-weight: 900; font-style: italic; font-size: clamp(26px, 2.8vw, 36px); line-height: 1; color: var(--fg); padding: 16px 0; white-space: nowrap; text-align: right; }
 .ledger td small { font-size: var(--fs-small); color: var(--mute); margin-left: 4px; }
-.ledger td .hl small { color: #0b0b0c; }
 .ledger tbody tr { border-bottom: 1px solid var(--line); }
 .ledger thead th:not(:first-child) { text-align: right; }
 
@@ -184,6 +184,25 @@ section { padding: clamp(72px, 11vw, 140px) 0; border-top: 1px solid var(--line)
 .strip img { aspect-ratio: 4 / 5; height: 100%; }
 .strip.two img { aspect-ratio: 1; }
 @media (max-width: 560px) { .strip { grid-auto-flow: row; grid-template-columns: 1fr 1fr; } .strip img:nth-child(3) { display: none; } }
+
+/* coming up: a season planner, one lane per program. The grid is decoration; the agenda list underneath carries the content. */
+.planner { --lw: 140px; --weeks: 13; position: relative; display: grid; grid-template-columns: var(--lw) repeat(var(--weeks), 1fr); row-gap: 10px; padding-top: 4px; margin-bottom: 36px; }
+.planner::before { content: ''; position: absolute; top: 0; bottom: 0; left: var(--lw); right: 0; pointer-events: none;
+  background: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% / var(--weeks))); border-right: 1px solid var(--line); }
+.planner .m { grid-row: 1; font-family: var(--small); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); padding-left: 8px; }
+.planner .name { grid-column: 1; align-self: center; color: var(--fg); font-weight: 500; }
+.planner .bar { height: 34px; background: var(--fg); align-self: center; position: relative; }
+.planner .notch { align-self: center; height: 34px; border-left: 2px solid var(--bg); border-right: 2px solid var(--bg); position: relative; z-index: 1; background: transparent; }
+.planner .tag { font-family: var(--small); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+.planner .tag.end { justify-self: end; }
+.planner .now { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--foil); left: calc(var(--lw) + (100% - var(--lw)) * var(--at)); }
+.planner .now b { position: absolute; bottom: 100%; left: 0; transform: translateX(-50%); font: 400 var(--fs-label)/1 var(--small); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; padding-bottom: 6px; }
+.agenda { list-style: none; border-top: 2px solid var(--rule); }
+.agenda a { display: grid; grid-template-columns: 1.1fr 2.4fr auto; gap: 8px 28px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--fg); transition: background .25s var(--ease); }
+.agenda a:hover { background: var(--bg-2); }
+.agenda .what { color: var(--text); }
+.agenda .what strong { margin-right: 10px; }
+@media (max-width: 760px) { .planner { display: none; } .agenda a { grid-template-columns: 1fr; } }
 
 /* photos: black and white, high contrast. Contrast is baked in by _tools/bw.py; the filter only catches untreated files. */
 .photo { filter: grayscale(1); object-fit: cover; width: 100%; }

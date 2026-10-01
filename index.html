@@ -29,15 +29,6 @@
 .hero .cta { margin-top: 40px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
 .hero .foot { margin-top: 16px; font-family: var(--small); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
 
-.now { border-top: 1px solid var(--line); padding: 0; }
-.now .wrap { display: flex; flex-wrap: wrap; }
-.now a { flex: 1 1 320px; display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 22px 0; text-decoration: none; font-size: var(--fs-small); color: var(--fg); }
-.now a + a { border-left: 1px solid var(--line); padding-left: var(--pad); }
-.now a:first-child { padding-right: var(--pad); }
-.now .t { font-weight: 500; }
-.now .label { display: block; margin-bottom: 4px; }
-.now a:hover .t { text-decoration: underline; text-underline-offset: 4px; }
-
 .band { border-top: 0; padding: 0; }
 .band img { height: clamp(320px, 52vw, 640px); object-position: 50% 35%; }
 
@@ -58,7 +49,7 @@
 .coach img { aspect-ratio: 4 / 5; }
 .coach h2 { margin: 18px 0 28px; }
 .coach p + p { margin-top: 16px; }
-.coach blockquote { margin: 40px 0; padding-left: 20px; border-left: 3px solid var(--hl); }
+.coach blockquote { margin: 40px 0; padding-left: 20px; border-left: 3px solid; border-image: var(--foil) 1; }
 .coach blockquote p { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 30px; line-height: 1; color: var(--fg); }
 .coach blockquote cite { display: block; font-style: normal; font-family: var(--small); letter-spacing: .08em; text-transform: uppercase; font-size: var(--fs-label); color: var(--mute); margin-top: 8px; }
 .also { grid-column: 2; display: grid; grid-template-columns: 140px 1fr; gap: 28px; margin-top: 24px; padding-top: 40px; border-top: 1px solid var(--line); }
@@ -81,7 +72,6 @@
   .steps, .quotes { grid-template-columns: 1fr 1fr; }
   .steps li:nth-child(3) { border-left: 0; padding-left: 0; }
   .quotes figure:nth-child(3) { display: none; }
-  .now a + a { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
 }
 @media (max-width: 560px) {
   .steps, .quotes { grid-template-columns: 1fr; }
@@ -126,7 +116,7 @@
         <thead><tr><th>Test</th><th>Top boy</th><th>Top girl</th></tr></thead>
         <tbody>
           <tr><th>Vertical jump</th><td>+21<small>cm</small></td><td>+3<small>cm</small></td></tr>
-          <tr><th>Broad jump</th><td><span class="hl">+35<small>cm</small></span></td><td>+31.5<small>cm</small></td></tr>
+          <tr><th>Broad jump</th><td><span class="foil">+35</span><small>cm</small></td><td>+31.5<small>cm</small></td></tr>
           <tr><th>10 m sprint</th><td>−0.12<small>s</small></td><td>−0.25<small>s</small></td></tr>
         </tbody>
       </table>
@@ -135,11 +125,24 @@
   </div>
 </section>
 
-<div class="now">
+<section class="coming">
   <div class="wrap">
-    <a href="term.html"><span><span class="label"><span class="hl">Enrolling now</span></span><span class="t">Term 4</span></span><span class="num">5 Oct – 18 Dec · from $450 →</span></a>
+    <div class="head">
+      <h2 class="reveal">Coming up</h2>
+    </div>
+    <div class="planner reveal" aria-hidden="true" data-start="2026-09-28" data-weeks="13">
+      <span class="m" style="grid-column: 2">Oct</span><span class="m" style="grid-column: 6">Nov</span><span class="m" style="grid-column: 11">Dec</span>
+      <span class="name" style="grid-row: 2">Term 4</span>
+      <span class="bar" style="grid-row: 2; grid-column: 3 / 14"></span>
+      <span class="notch" style="grid-row: 2; grid-column: 3"></span><span class="notch" style="grid-row: 2; grid-column: 13"></span>
+      <span class="tag" style="grid-row: 3; grid-column: 3 / 6">Test</span><span class="tag end" style="grid-row: 3; grid-column: 11 / 14">Re-test</span>
+      <i class="now" hidden><b class="foil">This week</b></i>
+    </div>
+    <ol class="agenda reveal">
+      <li><a href="term.html"><span class="when num">5 Oct – 18 Dec</span><span class="what"><strong>Term 4</strong>Ten weekly sessions. Testing in week 1, re-testing 14–18 Dec.</span><span class="price">From $450 →</span></a></li>
+    </ol>
   </div>
-</div>
+</section>
 
 <section class="band">
   <img class="photo" src="assets/img/bw/0F8A7600.jpg" alt="Ben coaching an athlete through a barbell lift" loading="lazy">
@@ -154,7 +157,7 @@
       <div class="row thead"><span>Program</span><span>Dates</span><span>Ages</span><span>Group</span><span>Price</span><span></span></div>
       <a class="row" href="term.html">
         <div><h3>Term 4</h3><p>One coached session a week for ten weeks. Advanced is for athletes who've already done a full term.</p></div>
-        <span><span class="k">Dates</span>5 Oct – 18 Dec</span><span><span class="k">Ages</span>10–18</span><span><span class="k">Group</span><span class="hl">Max 8</span> · Advanced max 4</span><span class="price"><span class="k">Price</span>$450 · $650</span><span class="arrow">→</span>
+        <span><span class="k">Dates</span>5 Oct – 18 Dec</span><span><span class="k">Ages</span>10–18</span><span><span class="k">Group</span>Max 8 · Advanced max 4</span><span class="price"><span class="k">Price</span>$450 · $650</span><span class="arrow">→</span>
       </a>
       <a class="row" href="blueprint.html">
         <div><h3>The Blueprint</h3><p>For athletes with their own gym. We write the program, and every 5 to 7 weeks we meet to update it.</p></div>
@@ -174,7 +177,7 @@
       <li class="reveal"><span class="n">01</span><h3>Test</h3><p>Vertical jump, broad jump and a 10 m sprint in the first session.</p></li>
       <li class="reveal"><span class="n">02</span><h3>Plan</h3><p>We write the program from those numbers and the sport your athlete plays.</p></li>
       <li class="reveal"><span class="n">03</span><h3>Train</h3><p>Every session is coached. Technique first, then load.</p></li>
-      <li class="reveal"><span class="n">04</span><h3><span class="hl">Re-test</span></h3><p>Same three tests in the last session, and you get a written summary.</p></li>
+      <li class="reveal"><span class="n">04</span><h3>Re-test</h3><p>Same three tests in the last session, and you get a written summary.</p></li>
     </ol>
   </div>
 </section>
@@ -182,7 +185,7 @@
 <section class="entry">
   <div class="wrap">
     <div class="reveal">
-      <img class="word" src="assets/brand/wordmark.png" alt="SISU">
+      <span class="word foil-logo" role="img" aria-label="SISU"></span>
       <p class="pos label">/ˈsi.su/ · noun · Finnish</p>
     </div>
     <div class="reveal">
@@ -242,7 +245,7 @@
       <h2 class="reveal">Rated 5.0</h2>
     </div>
     <div class="quotes">
-      <figure class="reveal"><blockquote>“In just a few weeks, Leo's standing long jump improved from <span class="hl num">2.12m to 2.40m</span>. Exceeded our expectations. Measurable, consistent, and Leo has loved every session.”</blockquote><figcaption>Will · Term S&amp;C</figcaption></figure>
+      <figure class="reveal"><blockquote>“In just a few weeks, Leo's standing long jump improved from <span class="num">2.12m to 2.40m</span>. Exceeded our expectations. Measurable, consistent, and Leo has loved every session.”</blockquote><figcaption>Will · Term S&amp;C</figcaption></figure>
       <figure class="reveal"><blockquote>“His speed, jump and strength gains have been significant. Ben has been a diligent and caring coach and always takes the time to explain the training program to parents.”</blockquote><figcaption>Blake · Holiday and term S&amp;C</figcaption></figure>
       <figure class="reveal"><blockquote>“Ben's coaching is outstanding. Dedicated to reviewing individual movement, performance, and progress. Highly recommended.”</blockquote><figcaption>Kimberly · Holiday program</figcaption></figure>
     </div>
